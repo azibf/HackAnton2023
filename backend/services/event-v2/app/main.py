@@ -17,6 +17,11 @@ def invalidate():
     raise NotImplementedError
 
 
+@app.get("/health")
+async def health():
+    return {"status": "UP"}
+
+
 @app.get("/event")
 def list_events():
     calendar = get_calendar(os.environ["EVENT_CAL_URL"])
