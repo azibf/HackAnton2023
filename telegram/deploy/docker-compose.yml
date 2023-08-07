@@ -14,7 +14,6 @@ services:
       mysql:
         condition: service_healthy
     networks:
-      - external-network
       - internal-network
 
   mysql:
@@ -39,5 +38,3 @@ services:
 
 networks:
   internal-network:
-  external-network:
-    external: true
