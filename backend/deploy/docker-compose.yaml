@@ -93,6 +93,8 @@ services:
       - internal-network
   event-sidecar:
     image: ghcr.io/azibf/hackanton2023/sidecar:latest
+    env_file:
+      - ./config/.env
     environment:
       - CONFIG_HOST=config
     depends_on:
