@@ -25,24 +25,11 @@ def list_events():
             datetime.date.today(), datetime.time(23, 59), tzinfo=timezone(TIMEZONE)
         ),
     )
-    all_day_events = filter(
-        lambda event: not isinstance(event.get("DTSTART").dt, datetime.datetime), events
+    # Filter out all-day events, since TG bot always tries to show time for events
+    events = filter(
+        lambda event: isinstance(event.get("DTSTART").dt, datetime.datetime), events
     )
-    fixed_time_events = sorted(
-        filter(
-            lambda event: isinstance(event.get("DTSTART").dt, datetime.datetime), events
-        ),
-        key=lambda event: event.get("DTSTART").dt,
-    )
-    return {
-        "data": {
-            "content": list(
-                map(
-                    Event.from_icalendar, list(chain(all_day_events, fixed_time_events))
-                )
-            )
-        }
-    }
+    return {"data": {"content": list(map(Event.from_icalendar, list(events)))}}
 
 
 @router.get("/event/{event_id}")
