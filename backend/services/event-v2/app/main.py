@@ -8,23 +8,26 @@ from .entities.event import Event
 from .controller.calendar import get_calendar
 
 app = FastAPI()
+
+CALENDAR_URL = os.environ["EVENT_CAL_URL"]
 TIMEZONE = os.environ["TIMEZONE"] if "TIMEZONE" in os.environ else "Europe/Moscow"
 
 
 # Invalidates the cache for a calendar
 @app.post("/calendar/invalidate")
 def invalidate():
-    raise NotImplementedError
+    get_calendar(CALENDAR_URL, force_refresh=True)
+    return {"success": "OK"}
 
 
 @app.get("/health")
-async def health():
+def health():
     return {"status": "UP"}
 
 
 @app.get("/event")
 def list_events():
-    calendar = get_calendar(os.environ["EVENT_CAL_URL"])
+    calendar = get_calendar(CALENDAR_URL)
     events = recurring_ical_events.of(calendar).between(
         datetime.datetime.combine(
             datetime.date.today(), datetime.time(0, 0), tzinfo=timezone(TIMEZONE)

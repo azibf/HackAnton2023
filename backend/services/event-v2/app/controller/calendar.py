@@ -15,9 +15,9 @@ def should_refresh():
     return datetime.datetime.now() - last_refreshed_at > ttl
 
 
-def get_calendar(calendar_url: str):
+def get_calendar(calendar_url: str, force_refresh=False):
     global calendar, last_refreshed_at
-    if should_refresh():
+    if force_refresh or should_refresh():
         calendar = fetch_and_parse_calendar(calendar_url)
         last_refreshed_at = datetime.datetime.now()
     return calendar
