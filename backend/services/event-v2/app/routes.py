@@ -14,15 +14,19 @@ CALENDAR_URL = os.environ["EVENT_CAL_URL"]
 TIMEZONE = os.environ["TIMEZONE"] if "TIMEZONE" in os.environ else "Europe/Moscow"
 
 
+def today_tz():
+    return datetime.datetime.now(timezone(TIMEZONE)).date()
+
+
 @router.get("/event")
 def list_events():
     calendar = get_calendar(CALENDAR_URL)
     events = recurring_ical_events.of(calendar).between(
         datetime.datetime.combine(
-            datetime.date.today(), datetime.time(0, 0), tzinfo=timezone(TIMEZONE)
+            today_tz, datetime.time(0, 0), tzinfo=timezone(TIMEZONE)
         ),
         datetime.datetime.combine(
-            datetime.date.today(), datetime.time(23, 59), tzinfo=timezone(TIMEZONE)
+            today_tz, datetime.time(23, 59), tzinfo=timezone(TIMEZONE)
         ),
     )
     # Filter out all-day events, since TG bot always tries to show time for events
