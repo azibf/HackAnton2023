@@ -9,4 +9,4 @@ RUN pip install --no-cache-dir --upgrade -r /home/service/requirements.txt
 COPY ./app /home/service/app
 
 EXPOSE 8080
-CMD ["python3", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["python3", "-m", "uvicorn", "app.main:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "8080"]
