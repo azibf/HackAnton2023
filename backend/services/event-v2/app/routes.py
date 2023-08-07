@@ -34,9 +34,11 @@ def list_events():
         ),
         key=lambda event: event.get("DTSTART").dt,
     )
-    return list(
-        map(Event.from_icalendar, list(chain(all_day_events, fixed_time_events)))
-    )
+    return {
+        "data": list(
+            map(Event.from_icalendar, list(chain(all_day_events, fixed_time_events)))
+        )
+    }
 
 
 @router.get("/event/{event_id}")
