@@ -17,4 +17,4 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
       - run: ./gradlew jibDockerBuild
-        working-directory: backend/service
+        working-directory: /home/runner/work/HackAnton2023/backend/service
