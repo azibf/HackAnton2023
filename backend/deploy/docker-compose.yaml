@@ -16,7 +16,6 @@ services:
     networks:
       - external-network
       - internal-network
-
   admin:
     image: admin:latest
     build: ../admin
@@ -31,7 +30,6 @@ services:
       - ./data/static/:/src/static/
     networks:
       - internal-network
-
   gateway:
     image: gateway:latest
     env_file:
@@ -46,7 +44,6 @@ services:
     networks:
       - internal-network
       - external-network
-
   user:
     image: user:latest
     env_file:
@@ -61,7 +58,6 @@ services:
         condition: service_healthy
     networks:
       - internal-network
-
   challenge:
     image: challenge:latest
     env_file:
@@ -76,7 +72,6 @@ services:
         condition: service_healthy
     networks:
       - internal-network
-
   event:
     image: event:latest
     env_file:
@@ -91,7 +86,6 @@ services:
         condition: service_healthy
     networks:
       - internal-network
-
   discovery:
     image: discovery:latest
     env_file:
@@ -107,7 +101,6 @@ services:
         condition: service_healthy
     networks:
       - internal-network
-
   config:
     image: config:latest
     env_file:
@@ -118,13 +111,12 @@ services:
       retries: 100
     networks:
       - internal-network
-
   mysql:
     image: mysql
     env_file:
       - ./config/.env
     healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 3s
       retries: 100
     ports:
@@ -134,7 +126,6 @@ services:
       - ./init/mysql:/docker-entrypoint-initdb.d
     networks:
       - internal-network
-
 networks:
   external-network:
     external: true
