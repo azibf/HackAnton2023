@@ -4,7 +4,7 @@ spring:
   main:
     banner-mode: off
   application:
-    name: sidecar
+    name: ${APP_NAME:sidecar}
   profiles:
     active: ${ENV:default}
   cloud:
@@ -13,4 +13,5 @@ spring:
       fail-fast: true
 sidecar:
   port: 8080
-  health-uri: http://localhost:8080/health
+  hostname: ${HOSTNAME:localhost}
+  health-uri: http://${HOSTNAME:localhost}:8080/health
