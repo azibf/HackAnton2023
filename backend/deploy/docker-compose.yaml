@@ -14,7 +14,6 @@ services:
     ports:
       - "8080:8000"
     networks:
-      - external-network
       - internal-network
   admin:
     image: admin:latest
@@ -43,7 +42,6 @@ services:
       - "8000:8000"
     networks:
       - internal-network
-      - external-network
   user:
     image: ghcr.io/azibf/hackanton2023/user:latest
     env_file:
@@ -134,6 +132,4 @@ services:
     command: --interval 30
 
 networks:
-  external-network:
-    external: true
   internal-network:
