@@ -80,8 +80,8 @@ services:
     env_file:
       - ./config/event/.env
     environment:
-      - CONFIG_HOST=config
-      - DB_HOST=mysql
+      - APP_NAME=event
+      - EUREKA_SERVER=http://discovery:8761/eureka
     healthcheck:
       test: "curl --fail --silent http://localhost:8080/health | grep UP || exit 1"
       timeout: 3s
@@ -91,21 +91,7 @@ services:
         condition: service_healthy
     networks:
       - internal-network
-  event-sidecar:
-    image: ghcr.io/azibf/hackanton2023/sidecar:latest
-    env_file:
-      - ./config/.env
-    environment:
-      - CONFIG_HOST=config
-      - APP_NAME=event
       - HOSTNAME=event
-    depends_on:
-      discovery:
-        condition: service_healthy
-      event:
-        condition: service_healthy
-    networks:
-      - internal-network
   discovery:
     image: ghcr.io/azibf/hackanton2023/discovery:latest
     env_file:
