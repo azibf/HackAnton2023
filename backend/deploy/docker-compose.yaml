@@ -59,7 +59,7 @@ services:
     networks:
       - internal-network
   challenge:
-    image: challenge:latest
+    image: ghcr.io/azibf/hackanton2023/challenge:latest
     env_file:
       - ./config/.env
     environment:
