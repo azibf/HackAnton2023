@@ -9,6 +9,7 @@ services:
       - ./config/nginx.conf:/etc/nginx/conf.d/nginx.conf
       - ./data/nginx/log/:/var/log/nginx/
       - ./data/static/:/static/
+      - ./data/tls/:/etc/tls
     ports:
       - "80:80"
       - "443:443"
