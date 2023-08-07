@@ -19,6 +19,6 @@ dependencies {
 
 jib {
     to {
-        image = "config:latest"
+        image = "ghcr.io/azibf/hackanton2023/config:latest"
     }
 }
