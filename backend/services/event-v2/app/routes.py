@@ -16,18 +16,7 @@ TIMEZONE = os.environ["TIMEZONE"] if "TIMEZONE" in os.environ else "Europe/Mosco
 def list_events():
     calendar = get_calendar(CALENDAR_URL)
     events = get_events_for_today(calendar, TIMEZONE)
-    return {
-        "data": {
-            "content": list(
-                map(
-                    Event.from_icalendar,
-                    sorted(
-                        events, key=lambda event: event.get("DTSTART").dt, reverse=True
-                    ),
-                )
-            )
-        }
-    }
+    return {"data": {"content": list(map(Event.from_icalendar, events))}}
 
 
 @router.get("/event/{event_id}")

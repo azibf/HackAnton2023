@@ -16,7 +16,10 @@ def get_events_for_today(calendar: Calendar, tzname: str):
             today, datetime.time(23, 59), tzinfo=timezone(tzname)
         ),
     )
-    # Filter out all-day events, since TG bot always tries to show time for events
-    return filter(
-        lambda event: isinstance(event.get("DTSTART").dt, datetime.datetime), events
+    return sorted(
+        # Filter out all-day events, since TG bot always tries to show time for events
+        filter(
+            lambda event: isinstance(event.get("DTSTART").dt, datetime.datetime), events
+        ),
+        key=lambda event: event.get("DTSTART").dt,
     )
