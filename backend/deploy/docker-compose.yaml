@@ -91,7 +91,6 @@ services:
         condition: service_healthy
     networks:
       - internal-network
-      - HOSTNAME=event
   discovery:
     image: ghcr.io/azibf/hackanton2023/discovery:latest
     env_file:
