@@ -1,0 +1,41 @@
+server:
+  port: 8000
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: user
+          uri: lb://user
+          predicates:
+            - Path=/api/v1/user/**
+
+        - id: team
+          uri: lb://user
+          predicates:
+            - Path=/api/v1/team/**
+
+        - id: award
+          uri: lb://challenge
+          predicates:
+            - Path=/api/v1/award/**
+
+        - id: challenge
+          uri: lb://challenge
+          predicates:
+            - Path=/api/v1/challenge/**
+
+        - id: submit
+          uri: lb://challenge
+          predicates:
+            - Path=/api/v1/score/**
+
+        - id: event
+          uri: lb://event
+          predicates:
+            - Path=/api/v1/event/**
+
+        - id: broadcast
+          uri: lb://broadcast
+          predicates:
+            - Path=/api/v1/broadcast/**

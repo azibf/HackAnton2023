@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "ctf-platform-admin"
+version = "0.1.0"
+description = "Admin Panel for managing CTF platform"
+authors = ["Krasnopolsky Ivan <i1.krasnopolskiy@gmail.com>"]
+packages = [{ include = "app" }]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+# Core
+python = "~3.11"
+django = "4.2.3"
+
+# Database
+mysqlclient = "2.2.0"
+django-mysql = "4.11.0"
+
+# Utils
+gunicorn = "21.2.0"
+python-dotenv = "1.0.0"
+
+[tool.poetry.group.dev.dependencies]
+# Code Style
+pylint = "2.17.5"
+black = "23.7.0"
+
+[tool.black]
+line-length = 120
+target-version = ["py310"]

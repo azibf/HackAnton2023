@@ -1,0 +1,1342 @@
+{
+	"info": {
+		"_postman_id": "d44acd61-a3f0-42fb-a463-92d654aebb23",
+		"name": "Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24160409"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "/user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/user",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomFullName}}\",\r\n    \"token\": \"{{$randomBankAccountBic}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/user",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/user/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "a7c5c1f0-8f5c-4df0-b6f0-1ede3c7cfdd9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomUserName}}\",\r\n    \"token\": \"{{$randomBankAccountBic}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/user/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "b1cc2602-aa3b-4a44-995a-9fa3754177dc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/user/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "28ea3570-a8e2-40bc-831f-23b36d961b04"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/ids",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    \"28ea3570-a8e2-40bc-831f-23b36d961b04\",\r\n    \"a7c5c1f0-8f5c-4df0-b6f0-1ede3c7cfdd9\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/user/ids",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"ids"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/telegram",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"JBSECVX1\",\r\n    \"telegramId\": \"523789285\",\r\n    \"chatId\": \"523789285\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/user/telegram",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"telegram"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/telegram",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"chatId\": \"LKOIADA1HUK\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/user/telegram",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"telegram"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/telegram/:telegramId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/user/telegram/:telegramId",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"telegram",
+								":telegramId"
+							],
+							"variable": [
+								{
+									"key": "telegramId",
+									"value": "85rDYAoJxsedfT"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user/token/:tokenId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/user/token/:token",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"user",
+								"token",
+								":token"
+							],
+							"variable": [
+								{
+									"key": "token",
+									"value": "85rDYAoJxsedfT"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Team",
+			"item": [
+				{
+					"name": "/team",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/team",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"team"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/team",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomCatchPhrase}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/team",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"team"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/team/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/team/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"team",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4122d873-95eb-4018-a1e4-cc9f21cc2d45"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/team/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomCatchPhrase}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/team/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"team",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4122d873-95eb-4018-a1e4-cc9f21cc2d45"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/team/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/team/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"team",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4122d873-95eb-4018-a1e4-cc9f21cc2d45"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/team/:id/participant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/team/:id/participant",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"team",
+								":id",
+								"participant"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8fcfd4c8-802a-4a07-b20f-f0fbdc8481b3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/team/:id/participant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"007a5d87-4350-498c-abc8-1198d234fd37\",\r\n    \"invite\": \"b6935f03-a673-44a2-94e3-ba8d8a190271\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/team/:id/participant",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"team",
+								":id",
+								"participant"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "0f5a744c-40dd-40bb-82ef-183282bd1926"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/team/ids",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    \"4122d873-95eb-4018-a1e4-cc9f21cc2d45\",\r\n    \"4befc9fc-09d0-456f-918e-969fc0a0a974\"\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/team/ids",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"team",
+								"ids"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Award",
+			"item": [
+				{
+					"name": "/award",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/award?userId=06cb112f-b7e3-41cc-a051-bd8d4dfb893a",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"award"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "06cb112f-b7e3-41cc-a051-bd8d4dfb893a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/award",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomLoremSentence}}\",\r\n    \"description\": \"{{$randomLoremParagraph}}\",\r\n    \"weight\": 100,\r\n    \"team\": true,\r\n    \"visible\": true,\r\n    \"start\": \"2023-07-28T22:30:00\",\r\n    \"end\": \"2024-07-28T23:30:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/award",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"award"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/award/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/award/:id?userId=512063b3-3c5c-48db-8144-caff808dd766",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"award",
+								":id"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "512063b3-3c5c-48db-8144-caff808dd766"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6f191298-6ba1-4317-929c-be0d1954ca60"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/award/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomLoremSentence}}\",\r\n    \"description\": \"{{$randomLoremParagraph}}\",\r\n    \"weight\": 100,\r\n    \"team\": true,\r\n    \"visible\": true,\r\n    \"start\": \"2023-07-28T22:30:00\",\r\n    \"end\": \"2024-07-28T23:30:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/award/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"award",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "67f88d33-a620-4491-8539-7580d30b9d9b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/award/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/award/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"award",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "67f88d33-a620-4491-8539-7580d30b9d9b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/award/:id/submit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"EKUABFJ1\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/award/:id/submit",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"award",
+								":id",
+								"submit"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "9ab14163-0fa6-4132-aab4-9bdba8f27e6e"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Challenge",
+			"item": [
+				{
+					"name": "/challenge",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/challenge?userId=1dad7776-ccef-47ae-b039-d6e09ffc1b90",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"challenge"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "1dad7776-ccef-47ae-b039-d6e09ffc1b90"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/challenge",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomLoremSentence}}\",\r\n    \"description\": \"{{$randomLoremParagraph}}\",\r\n    \"flag\": \"flag{test}\",\r\n    \"weight\": 100,\r\n    \"team\": true,\r\n    \"visible\": false,\r\n    \"start\": \"2023-07-28T22:30:00\",\r\n    \"end\": \"2024-07-28T23:30:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/challenge",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"challenge"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/challenge/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/challenge/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"challenge",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1dad7776-ccef-47ae-b039-d6e09ffc1b99"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/challenge/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{$randomLoremSentence}}\",\r\n    \"description\": \"{{$randomLoremParagraph}}\",\r\n    \"flag\": \"flag{test}\",\r\n    \"weight\": 350,\r\n    \"team\": true,\r\n    \"visible\": true,\r\n    \"expire\": false,\r\n    \"start\": null,\r\n    \"end\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/challenge/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"challenge",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "67f88d33-a620-4491-8539-7580d30b9d9b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/challenge/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/challenge/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"challenge",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "67f88d33-a620-4491-8539-7580d30b9d9b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/challenge/:id/submit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"06cb112f-b7e3-41cc-a051-bd8d4dfb893a\",\r\n    \"flag\": \"flag{test}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/challenge/:id/submit",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"challenge",
+								":id",
+								"submit"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "a1604dfc-406f-4ec8-a77b-e010c07e5401"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Score",
+			"item": [
+				{
+					"name": "/score/profile/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/score/profile/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"score",
+								"profile",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1e787b26-b79a-4ffc-ab56-595eeaa838cc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/score/user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/score/user?page=1&size=1000000&order=DESC&field=score",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"score",
+								"user"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "1000000"
+								},
+								{
+									"key": "order",
+									"value": "DESC"
+								},
+								{
+									"key": "field",
+									"value": "score"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/score/user/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/score/user/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"score",
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1dad7776-ccef-47ae-b039-d6e09ffc1b99"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/score/user/:id/history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/score/user/:id/history",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"score",
+								"user",
+								":id",
+								"history"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8aa34885-52da-4e88-9504-1e3e5a25d08a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/score/team",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/score/team",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"score",
+								"team"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/score/team/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/score/team/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"score",
+								"team",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8aa34885-52da-4e88-9504-1e3e5a25d08a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/score/team/:id/history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/score/team/:id/history",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"score",
+								"team",
+								":id",
+								"history"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8aa34885-52da-4e88-9504-1e3e5a25d08a"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "/event",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/event",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"event"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2023-07-24",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"{{$randomLoremSentences}}\",\r\n    \"speaker\": \"{{$randomFullName}}\",\r\n    \"affiliate\": \"{{$randomCompanyName}}\",\r\n    \"start\": \"2023-07-31T16:00:00\",\r\n    \"end\": \"2023-07-31T18:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/event",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/event/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"event",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "45cae410-e1c4-4df0-89c1-2a3217c73853"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"{{$randomLoremSentences}}\",\r\n    \"speaker\": \"{{$randomFullName}}\",\r\n    \"affiliate\": \"{{$randomCompanyName}}\",\r\n    \"start\": \"2023-07-23T12:00:00\",\r\n    \"end\": \"2023-07-23T14:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/event/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"event",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "c873908a-1aa0-458e-a243-d4690bd52932"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/event/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/event/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"event",
+								":id"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2023-07-24",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "c873908a-1aa0-458e-a243-d4690bd52932"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Broadcast",
+			"item": [
+				{
+					"name": "/broadcast",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/broadcast",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"broadcast"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2023-07-24",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/broadcast",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"{{$randomLoremSentences}}\",\r\n    \"description\": \"{{$randomLoremParagraph}}\",\r\n    \"start\": \"2023-07-23T14:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/broadcast",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"broadcast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/broadcast/:id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/broadcast/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"broadcast",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "45cae410-e1c4-4df0-89c1-2a3217c73853"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/broadcast/:id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"{{$randomLoremSentences}}\",\r\n    \"description\": \"{{$randomLoremParagraph}}\",\r\n    \"start\": \"2023-07-23T14:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/broadcast/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"broadcast",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "c873908a-1aa0-458e-a243-d4690bd52932"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/broadcast/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/broadcast/:id",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"broadcast",
+								":id"
+							],
+							"query": [
+								{
+									"key": "date",
+									"value": "2023-07-24",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "c873908a-1aa0-458e-a243-d4690bd52932"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Actuator",
+			"item": [
+				{
+					"name": "/actuator/refresh",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/actuator/refresh",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"actuator",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

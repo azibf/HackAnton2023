@@ -1,0 +1,43 @@
+version: "3.8"
+
+name: "ctf-platform-telegram"
+
+services:
+  app:
+    build: ..
+    env_file:
+      - ./config/.env
+    environment:
+      - REDIS_HOST=redis
+      - DB_HOST=mysql
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - external-network
+      - internal-network
+
+  mysql:
+    image: mysql
+    env_file:
+      - ./config/.env
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 3s
+      retries: 100
+    networks:
+      - internal-network
+
+  redis:
+    image: redis
+    volumes:
+      - ./data/redis:/data
+    networks:
+      - internal-network
+
+networks:
+  internal-network:
+  external-network:
+    external: true

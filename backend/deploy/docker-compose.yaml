@@ -1,0 +1,141 @@
+version: "3.8"
+
+name: "ctf-platform-backend"
+
+services:
+  nginx:
+    image: nginx
+    volumes:
+      - ./config/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./data/nginx/log/:/var/log/nginx/
+      - ./data/static/:/static/
+    depends_on:
+      - admin
+    ports:
+      - "8080:8000"
+    networks:
+      - external-network
+      - internal-network
+
+  admin:
+    image: admin:latest
+    build: ../admin
+    env_file:
+      - ./config/.env
+    environment:
+      - DB_HOST=mysql
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - ./data/static/:/src/static/
+    networks:
+      - internal-network
+
+  gateway:
+    image: gateway:latest
+    env_file:
+      - ./config/.env
+    environment:
+      - CONFIG_HOST=config
+    depends_on:
+      discovery:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    networks:
+      - internal-network
+      - external-network
+
+  user:
+    image: user:latest
+    env_file:
+      - ./config/.env
+    environment:
+      - CONFIG_HOST=config
+      - DB_HOST=mysql
+    depends_on:
+      discovery:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+    networks:
+      - internal-network
+
+  challenge:
+    image: challenge:latest
+    env_file:
+      - ./config/.env
+    environment:
+      - CONFIG_HOST=config
+      - DB_HOST=mysql
+    depends_on:
+      discovery:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+    networks:
+      - internal-network
+
+  event:
+    image: event:latest
+    env_file:
+      - ./config/.env
+    environment:
+      - CONFIG_HOST=config
+      - DB_HOST=mysql
+    depends_on:
+      discovery:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+    networks:
+      - internal-network
+
+  discovery:
+    image: discovery:latest
+    env_file:
+      - ./config/.env
+    environment:
+      - CONFIG_HOST=config
+    healthcheck:
+      test: "curl --fail --silent http://localhost:8761/actuator/health/readiness | grep UP || exit 1"
+      timeout: 3s
+      retries: 100
+    depends_on:
+      config:
+        condition: service_healthy
+    networks:
+      - internal-network
+
+  config:
+    image: config:latest
+    env_file:
+      - ./config/.env
+    healthcheck:
+      test: "curl --fail --silent http://localhost:8888/actuator/health/readiness | grep UP || exit 1"
+      timeout: 3s
+      retries: 100
+    networks:
+      - internal-network
+
+  mysql:
+    image: mysql
+    env_file:
+      - ./config/.env
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 3s
+      retries: 100
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      - ./init/mysql:/docker-entrypoint-initdb.d
+    networks:
+      - internal-network
+
+networks:
+  external-network:
+    external: true
+  internal-network:

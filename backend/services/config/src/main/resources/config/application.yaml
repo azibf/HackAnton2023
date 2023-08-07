@@ -1,0 +1,48 @@
+server:
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  jpa:
+    generate-ddl: false
+
+    hibernate:
+      ddl-auto: validate
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${EUREKA_HOST:localhost}:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: "health,refresh"
+
+  health:
+    readiness-state:
+      enabled: true
+
+    liveness-state:
+      enabled: true
+
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+logging:
+  pattern:
+    file: "[%d{yyyy-MM-dd HH:mm:ss.SSS}] %-5level [%t] [%logger - %line]: %m%n"
+    console: "[%boldWhite(%d{YYYY-MM-dd HH:mm:ss.SSS})] [%thread] %cyan(%-5level) %yellow(%logger{36}) - %msg%n"
+
+  level:
+    org.springframework: INFO
+    org.hibernate: INFO
+    root: INFO
+    org.springframework.web.client.RestTemplate: OFF

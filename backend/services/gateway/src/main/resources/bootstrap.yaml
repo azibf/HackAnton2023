@@ -1,0 +1,13 @@
+spring:
+  main:
+    banner-mode: off
+    web-application-type: reactive
+    allow-bean-definition-overriding: true
+
+  application:
+    name: gateway
+
+  cloud:
+    config:
+      uri: http://${CONFIG_HOST:localhost}:8888
+      fail-fast: true

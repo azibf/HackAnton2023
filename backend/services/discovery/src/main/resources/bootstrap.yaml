@@ -1,0 +1,11 @@
+spring:
+  main:
+    banner-mode: off
+
+  application:
+    name: discovery
+
+  cloud:
+    config:
+      uri: http://${CONFIG_HOST:localhost}:8888
+      fail-fast: true
