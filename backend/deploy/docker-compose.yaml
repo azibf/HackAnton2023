@@ -100,6 +100,8 @@ services:
       - APP_NAME=event
       - HOSTNAME=event
     depends_on:
+      discovery:
+        condition: service_healthy
       event:
         condition: service_healthy
     networks:
