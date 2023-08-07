@@ -6,7 +6,7 @@ create table Event.event
 (
     id         varchar(36)                         not null
         primary key,
-    created_at timestamp default CURRENT_TIMESTAMP not null,,
+    created_at timestamp default CURRENT_TIMESTAMP not null,
     description text                               null,
     affiliate  varchar(250)                        null,
     end        datetime(6)                         not null,
