@@ -20,6 +20,7 @@ def get_calendar(calendar_url: str, force_refresh=False):
     if force_refresh or should_refresh():
         calendar = fetch_and_parse_calendar(calendar_url)
         last_refreshed_at = datetime.datetime.now()
+    assert calendar is not None
     return calendar
 
 
