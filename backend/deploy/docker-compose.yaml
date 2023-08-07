@@ -97,6 +97,8 @@ services:
       - ./config/.env
     environment:
       - CONFIG_HOST=config
+      - APP_NAME=event
+      - HOSTNAME=event
     depends_on:
       event:
         condition: service_healthy
