@@ -9,6 +9,7 @@ from .controller.calendar import get_calendar
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
+    client = None
     EUREKA_SERVER = (
         os.environ["EUREKA_SERVER"] if "EUREKA_SERVER" in os.environ else None
     )
@@ -20,7 +21,7 @@ async def lifespan(_: FastAPI):
         )
         await client.start()
     yield
-    if client:
+    if client is not None:
         await client.stop()
 
 
