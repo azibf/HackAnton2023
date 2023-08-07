@@ -31,7 +31,7 @@ services:
     networks:
       - internal-network
   gateway:
-    image: gateway:latest
+    image: ghcr.io/azibf/hackanton2023/gateway:latest
     env_file:
       - ./config/.env
     environment:
@@ -45,7 +45,7 @@ services:
       - internal-network
       - external-network
   user:
-    image: user:latest
+    image: ghcr.io/azibf/hackanton2023/user:latest
     env_file:
       - ./config/.env
     environment:
@@ -73,7 +73,7 @@ services:
     networks:
       - internal-network
   event:
-    image: event:latest
+    image: ghcr.io/azibf/hackanton2023/event:latest
     env_file:
       - ./config/.env
     environment:
@@ -87,7 +87,7 @@ services:
     networks:
       - internal-network
   discovery:
-    image: discovery:latest
+    image: ghcr.io/azibf/hackanton2023/discovery:latest
     env_file:
       - ./config/.env
     environment:
@@ -102,7 +102,7 @@ services:
     networks:
       - internal-network
   config:
-    image: config:latest
+    image: ghcr.io/azibf/hackanton2023/config:latest
     env_file:
       - ./config/.env
     healthcheck:
