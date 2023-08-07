@@ -33,8 +33,10 @@ def list_events():
 
 
 @router.get("/event/{event_id}")
-def get_event():
-    raise NotImplementedError
+def get_event(event_id: str):
+    calendar = get_calendar(CALENDAR_URL)
+    event = calendar.event_by_uid(event_id)
+    return {"data": Event.from_icalendar(event)}
 
 
 @router.post("/event")
