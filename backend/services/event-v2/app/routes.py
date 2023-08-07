@@ -1,10 +1,8 @@
-from pytz import timezone
 from fastapi import APIRouter
-from itertools import chain
 import os
-import datetime, recurring_ical_events
 
 from .entities.event import Event
+from .controller.events import get_events_for_today
 from .controller.calendar import get_calendar
 
 router = APIRouter()
@@ -14,32 +12,18 @@ CALENDAR_URL = os.environ["EVENT_CAL_URL"]
 TIMEZONE = os.environ["TIMEZONE"] if "TIMEZONE" in os.environ else "Europe/Moscow"
 
 
-def today_tz():
-    return datetime.datetime.now(timezone(TIMEZONE)).date()
-
-
 @router.get("/event")
 def list_events():
     calendar = get_calendar(CALENDAR_URL)
-    events = recurring_ical_events.of(calendar).between(
-        datetime.datetime.combine(
-            today_tz, datetime.time(0, 0), tzinfo=timezone(TIMEZONE)
-        ),
-        datetime.datetime.combine(
-            today_tz, datetime.time(23, 59), tzinfo=timezone(TIMEZONE)
-        ),
-    )
-    # Filter out all-day events, since TG bot always tries to show time for events
-    events = filter(
-        lambda event: isinstance(event.get("DTSTART").dt, datetime.datetime), events
-    )
-    return {"data": {"content": list(map(Event.from_icalendar, list(events)))}}
+    events = get_events_for_today(calendar, TIMEZONE)
+    return {"data": {"content": list(map(Event.from_icalendar, events))}}
 
 
 @router.get("/event/{event_id}")
 def get_event(event_id: str):
     calendar = get_calendar(CALENDAR_URL)
-    event = calendar.event_by_uid(event_id)
+    events = get_events_for_today(calendar, TIMEZONE)
+    event = next(filter(lambda event: event.get("UID") == event_id, events), None)
     return {"data": Event.from_icalendar(event)}
 
 
