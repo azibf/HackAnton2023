@@ -11,7 +11,7 @@ from .controller.calendar import get_calendar
 
 
 @asynccontextmanager
-async def lifespan():
+async def lifespan(_: FastAPI):
     EUREKA_SERVER = (
         os.environ["EUREKA_SERVER"] if "EUREKA_SERVER" in os.environ else None
     )
