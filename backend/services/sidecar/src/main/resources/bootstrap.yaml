@@ -15,3 +15,4 @@ sidecar:
   port: 8080
   hostname: ${HOSTNAME:localhost}
   health-uri: http://${HOSTNAME:localhost}:8080/health
+  home-page-uri: http://${HOSTNAME:localhost}:8080/
