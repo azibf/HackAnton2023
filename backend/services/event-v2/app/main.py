@@ -10,7 +10,7 @@ from .controller.calendar import get_calendar
 
 EUREKA_SERVER = os.environ["EUREKA_SERVER"] if "EUREKA_SERVER" in os.environ else None
 if EUREKA_SERVER:
-    eureka_client.init(
+    eureka_client.init_registry_client(
         eureka_server=EUREKA_SERVER,
         app_name=os.environ["APP_NAME"] if "APP_NAME" in os.environ else "event-v2",
         instance_port=8080,
