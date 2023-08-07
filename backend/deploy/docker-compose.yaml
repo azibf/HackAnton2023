@@ -9,6 +9,9 @@ services:
       - ./config/nginx.conf:/etc/nginx/conf.d/nginx.conf
       - ./data/nginx/log/:/var/log/nginx/
       - ./data/static/:/static/
+    ports:
+      - "80:80"
+      - "443:443"
     depends_on:
       - admin
     networks:
