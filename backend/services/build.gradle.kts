@@ -10,7 +10,7 @@ plugins {
 
     id("org.springframework.boot") version "3.1.1" apply false
     id("io.spring.dependency-management") version "1.1.0" apply false
-    id("com.google.cloud.tools.jib") version "3.3.1" apply false
+    id("com.google.cloud.tools.jib") version "3.3.2" apply false
 }
 
 repositories {
