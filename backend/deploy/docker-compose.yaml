@@ -82,6 +82,10 @@ services:
     environment:
       - CONFIG_HOST=config
       - DB_HOST=mysql
+    healthcheck:
+      test: "curl --fail --silent http://localhost:8080/health | grep UP || exit 1"
+      timeout: 3s
+      retries: 100
     depends_on:
       discovery:
         condition: service_healthy
