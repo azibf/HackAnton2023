@@ -35,6 +35,7 @@ services:
     networks:
       - internal-network
   gateway:
+    container_name: gateway
     image: ghcr.io/azibf/hackanton2023/gateway:latest
     env_file:
       - ./config/.env
