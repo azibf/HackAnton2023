@@ -11,8 +11,6 @@ services:
       - ./data/static/:/static/
     depends_on:
       - admin
-    ports:
-      - "8080:8000"
     networks:
       - internal-network
   admin:
@@ -41,8 +39,6 @@ services:
     depends_on:
       discovery:
         condition: service_healthy
-    ports:
-      - "8000:8000"
     networks:
       - internal-network
   user:
@@ -120,8 +116,6 @@ services:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 3s
       retries: 100
-    ports:
-      - "3306:3306"
     volumes:
       - ./data/mysql:/var/lib/mysql
       - ./init/mysql:/docker-entrypoint-initdb.d
