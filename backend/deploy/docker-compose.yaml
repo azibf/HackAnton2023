@@ -76,16 +76,14 @@ services:
     networks:
       - internal-network
   event:
-    image: ghcr.io/azibf/hackanton2023/event:latest
+    image: ghcr.io/azibf/hackanton2023/event-v2:latest
     env_file:
-      - ./config/.env
+      - ./config/event/.env
     environment:
       - CONFIG_HOST=config
       - DB_HOST=mysql
     depends_on:
       discovery:
-        condition: service_healthy
-      mysql:
         condition: service_healthy
     networks:
       - internal-network
