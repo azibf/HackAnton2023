@@ -4,9 +4,9 @@
 
 ### Requirements
 
-- JDK 17
-- Docker
-- Docker Compose
+-   JDK 17
+-   Docker
+-   Docker Compose
 
 ### Documentation
 
@@ -31,5 +31,9 @@ cd services && ./gradlew jibDockerBuild
 Run images:
 
 ```bash
-cd deploy && docker-compose up -d 
+cd deploy && docker-compose up -d
 ```
+
+## Notes
+
+-   When registering a new user for Telegram, the user must send a token to the bot to link an account. The token is provided from an ID card.
