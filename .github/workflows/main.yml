@@ -25,7 +25,7 @@ jobs:
           java-version: "17"
       - run: ./gradlew jib
         working-directory: backend/services
-  build-frontend:
+  build-events:
     runs-on: ubuntu-20.04
     permissions:
       contents: read
@@ -45,14 +45,14 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: ghcr.io/azibf/hackanton2023/frontend
+          images: ghcr.io/azibf/hackanton2023/event-v2
           tags: |
             # set latest tag for default branch
             type=raw,value=latest,enable={{is_default_branch}}
       - name: Build and push Docker image
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
-          context: "{{defaultContext}}:frontend"
+          context: "{{defaultContext}}:backend/services/event-v2"
           file: ./Containerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
