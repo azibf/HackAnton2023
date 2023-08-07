@@ -3,11 +3,19 @@ from fastapi import FastAPI
 from itertools import chain
 import os
 import datetime, recurring_ical_events
+import py_eureka_client.eureka_client as eureka_client
 
 from .entities.event import Event
 from .controller.calendar import get_calendar
 
 app = FastAPI()
+EUREKA_SERVER = os.environ["EUREKA_SERVER"] if "EUREKA_SERVER" in os.environ else None
+if EUREKA_SERVER:
+    eureka_client.init(
+        eureka_server=EUREKA_SERVER,
+        app_name=os.environ["APP_NAME"] if "APP_NAME" in os.environ else "event-v2",
+        instance_port=8080,
+    )
 
 CALENDAR_URL = os.environ["EVENT_CAL_URL"]
 TIMEZONE = os.environ["TIMEZONE"] if "TIMEZONE" in os.environ else "Europe/Moscow"
