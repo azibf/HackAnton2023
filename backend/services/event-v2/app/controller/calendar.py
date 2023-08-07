@@ -16,9 +16,10 @@ def should_refresh():
 
 
 def get_calendar(calendar_url: str):
-    global calendar
+    global calendar, last_refreshed_at
     if should_refresh():
         calendar = fetch_and_parse_calendar(calendar_url)
+        last_refreshed_at = datetime.datetime.now()
     return calendar
 
 
