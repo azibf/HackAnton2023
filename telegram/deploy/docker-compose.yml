@@ -23,7 +23,7 @@ services:
     volumes:
       - ./data/mysql:/var/lib/mysql
     healthcheck:
-      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 3s
       retries: 100
     networks:
@@ -38,3 +38,5 @@ services:
 
 networks:
   internal-network:
+  backend:
+    external: true

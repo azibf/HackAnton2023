@@ -45,6 +45,7 @@ services:
         condition: service_healthy
     networks:
       - internal-network
+      - backend
   user:
     image: ghcr.io/azibf/hackanton2023/user:latest
     env_file:
@@ -134,3 +135,5 @@ services:
 
 networks:
   internal-network:
+  backend:
+    name: backend
