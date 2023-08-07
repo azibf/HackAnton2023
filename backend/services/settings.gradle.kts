@@ -11,6 +11,7 @@ include(
     "config",
     "discovery",
     "gateway",
+    "sidecar",
 
     "user",
     "challenge",
