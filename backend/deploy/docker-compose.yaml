@@ -91,6 +91,13 @@ services:
         condition: service_healthy
     networks:
       - internal-network
+  event-sidecar:
+    image: ghcr.io/azibf/hackanton2023/sidecar:latest
+    depends_on:
+      event:
+        condition: service_healthy
+    networks:
+      - internal-network
   discovery:
     image: ghcr.io/azibf/hackanton2023/discovery:latest
     env_file:
