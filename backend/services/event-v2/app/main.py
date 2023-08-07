@@ -1,3 +1,8 @@
+# See: https://stackoverflow.com/questions/46827007/runtimeerror-this-event-loop-is-already-running-in-python
+import nest_asyncio
+
+nest_asyncio.apply()
+
 from pytz import timezone
 from fastapi import FastAPI
 from itertools import chain
