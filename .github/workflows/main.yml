@@ -16,5 +16,5 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-      - run: ./gradlew jibDockerBuild
+      - run: ./gradlew jib
         working-directory: backend/services
