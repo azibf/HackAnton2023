@@ -19,6 +19,6 @@ dependencies {
 
 jib {
     to {
-        image = "gateway:latest"
+        image = "ghcr.io/azibf/HackAnton2023/gateway:latest"
     }
 }

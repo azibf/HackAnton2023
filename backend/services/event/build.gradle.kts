@@ -26,6 +26,6 @@ dependencies {
 
 jib {
     to {
-        image = "event:latest"
+        image = "ghcr.io/azibf/HackAnton2023/event:latest"
     }
 }
