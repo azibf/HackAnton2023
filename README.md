@@ -89,18 +89,6 @@ LetoCTF2023 - Telegram Bot
 <p align="justify">&emsp;&emsp;4. Нет возможности поставить напоминание о предстоящей лекции.</p>
 <p align="justify">&emsp;&emsp;5. Нет возможности организовать мероприятие.</p>
 
-<p align="justify"> Рассмотрим каждый недостаток подробнее.</p>
-
-<p align="justify">&emsp;&emsp;:large_blue_circle: Неструктурированная организация лекций</p>
-
-<p align="justify">&emsp;&emsp;:large_blue_circle: Неудобное распределение тасков</p>
-
-<p align="justify">&emsp;&emsp;:large_blue_circle: Неудобный интерфейс таска на паяльник</p>
-
-<p align="justify">&emsp;&emsp;:large_blue_circle: Нет возможности поставить напоминание о предстоящей лекции</p>
-
-<p align="justify">&emsp;&emsp;:large_blue_circle: Нет возможности организовать мероприятия</p>
-
 <h2 align="center">
     Описание решения
 </h2>
