@@ -1,7 +1,4 @@
 <h1 Enigma </h1>
-<p align="center">
-    <img src="URL">
-</p>
 
 <h1 align="center">
 LetoCTF2023 - Telegram Bot
