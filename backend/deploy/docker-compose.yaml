@@ -34,6 +34,11 @@ services:
       - ./data/static/:/src/static/
     networks:
       - internal-network
+  next:
+    image: ghcr.io/azibf/hackanton2023/frontend:latest
+    build: ../../frontend
+    networks:
+      - internal-network
   gateway:
     container_name: gateway
     image: ghcr.io/azibf/hackanton2023/gateway:latest
